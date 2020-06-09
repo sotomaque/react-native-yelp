@@ -25,10 +25,18 @@ const SearchScreen = () => {
                 error 
                 ? <Text style={{ color: 'red', textAlign: 'center' }}>{error}</Text> 
                 : <ScrollView>
-                    <ResultsList title="Cost Effective 💲" results={filterResultsByPrice('$')} />
-                    <ResultsList title="Bit Pricier 💵" results={filterResultsByPrice('$$')} />
-                    <ResultsList title="Big Spender 🤑" results={filterResultsByPrice('$$$')} />
-                    <ResultsList title="Break the Bank 💯" results={filterResultsByPrice('$$$$')} />
+                    {
+                        filterResultsByPrice('$').length > 0 ? <ResultsList title="Cost Effective 💲" results={filterResultsByPrice('$')} /> : null
+                    }
+                    {
+                        filterResultsByPrice('$').length > 0 ? <ResultsList title="Bit Pricier 💵" results={filterResultsByPrice('$$')} /> : null
+                    }
+                    {
+                        filterResultsByPrice('$$$').length > 0 ? <ResultsList title="Big Spender 🤑" results={filterResultsByPrice('$$$')} /> : null
+                    }
+                    {
+                        filterResultsByPrice('$$$$').length > 0 ? <ResultsList title="Break the Bank 💯" results={filterResultsByPrice('$$$$')} /> : null
+                    }  
                   </ScrollView>
             }
         </>
